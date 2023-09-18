@@ -76,7 +76,7 @@ env:
           IMAGE_TAG: ${{ github.sha }
           KUBECTL_VERSION: "v1.22.0"
         with:
-          args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          args: argo rollouts set image ROLLOUT_NAME CONTAINER_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 ```
 
 `IAM_VERSION` - **optional**: By default, this action pulls the latest version of aws-iam-authenticator. To prevent potential dependency issue, you have the option to only use specific version.
@@ -92,5 +92,5 @@ env:
           KUBECTL_VERSION: "v1.22.0"
           IAM_VERSION: "0.5.6"
         with:
-          args: set image deployment/$ECR_REPOSITORY $ECR_REPOSITORY=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          args: argo rollouts set image ROLLOUT_NAME CONTAINER_NAME=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 ```
